@@ -1,6 +1,7 @@
 import './sign-in-form.style.scss';
 import { useState } from 'react';
-import { signInWithGooglePopup, createUserDocumentFromAuth, signInAuthUserWithEmailAndPassword } from '../../firebase/firebase.utils.js'
+import { signInWithGooglePopup, signInAuthUserWithEmailAndPassword } from '../../firebase/firebase.utils.js'
+
 import FormInput from '../form-input/form-input.component'
 import Button from '../button/button.component'
 
@@ -28,7 +29,7 @@ const defaultFormField = {
   password: '',
 };
 
-const SignUpForm = () => {
+const SignInForm = () => {
   const [FormFields, setFormFields] = useState(defaultFormField);
   const { email, password } = FormFields;
 
@@ -45,19 +46,22 @@ const SignUpForm = () => {
     })
   };
 
+  const signInWithGoogle = async () => {
+    await signInWithGooglePopup()
+  }
+
   const handleSumbit = async (event) => {
     event.preventDefault();
     
     try {
-      const respone = await signInAuthUserWithEmailAndPassword(email, password)
-      console.log(respone);
+      await signInAuthUserWithEmailAndPassword(email, password)
       resetFormFields()
     } catch (error) {
-      switch (error.cdoe) {
+      switch (error.code) {
         case 'auth/wrong-password':
           alert('incorrect password')
           break;
-        case 'auth/user-not-fine':
+        case 'auth/user-not-found':
           alert('invalid email or password')
           break;
         default:
@@ -65,11 +69,6 @@ const SignUpForm = () => {
           break;
       }
     }
-  }
-
-  const signInWithGoogle = async () => {
-    const { user } = await signInWithGooglePopup()
-    const userDocRef = await createUserDocumentFromAuth(user)
   }
 
   return (
@@ -104,4 +103,4 @@ const SignUpForm = () => {
   );
 };
 
-export default SignUpForm;
+export default SignInForm;
