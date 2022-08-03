@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { signInWithGooglePopup, signInAuthUserWithEmailAndPassword } from '../../firebase/firebase.utils.js'
 
 import FormInput from '../form-input/form-input.component'
-import Button from '../button/button.component'
+import Button, { BUTTON_TYPE_CLASSES } from '../button/button.component'
 
 /*
   Redirect的用法
@@ -94,8 +94,8 @@ const SignInForm = () => {
           value={password}
         />
         <div className="buttons-container">
-          <Button buttonType="" type="submit">Sign in</Button>
-          <Button buttonType="google" onClick={signInWithGoogle}>Google Sign in</Button>
+          <Button buttonType={BUTTON_TYPE_CLASSES.base} type="submit">Sign in</Button>
+          <Button buttonType={BUTTON_TYPE_CLASSES.google} onClick={signInWithGoogle}>Google Sign in</Button>
         </div>
         
       </form>

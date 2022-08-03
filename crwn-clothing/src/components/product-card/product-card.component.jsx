@@ -2,7 +2,7 @@ import './product-card.style.scss';
 import { useState, useContext } from 'react';
 import { signInWithGooglePopup, signInAuthUserWithEmailAndPassword } from '../../firebase/firebase.utils.js'
 
-import Button from '../button/button.component'
+import Button, { BUTTON_TYPE_CLASSES } from '../button/button.component'
 import { CartContext } from '../../contexts/cart.context'
 
 const ProductCard = ({product}) => {
@@ -18,7 +18,7 @@ const ProductCard = ({product}) => {
         <span className="name">{name}</span>
         <span className="price">{price}</span>
       </div>
-      <Button buttonType="inverted" onClick={addProductToCart}>Add to card</Button>
+      <Button buttonType={BUTTON_TYPE_CLASSES.inverted} onClick={addProductToCart}>Add to card</Button>
     </div>
   );
 };
