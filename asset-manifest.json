@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/udemy-ztom-react-monster-rolodex/static/css/main.535b5e28.css",
+    "main.js": "/udemy-ztom-react-monster-rolodex/static/js/main.96d9da15.js",
+    "index.html": "/udemy-ztom-react-monster-rolodex/index.html",
+    "main.535b5e28.css.map": "/udemy-ztom-react-monster-rolodex/static/css/main.535b5e28.css.map",
+    "main.96d9da15.js.map": "/udemy-ztom-react-monster-rolodex/static/js/main.96d9da15.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.535b5e28.css",
+    "static/js/main.96d9da15.js"
+  ]
+}
